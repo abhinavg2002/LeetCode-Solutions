@@ -8,6 +8,7 @@ public:
             ll s=*st.begin();
             ll ct=1;
             s+=mid;
+            // basically every pair of magnetic balls ke beech ka forces should be atleast mid
             auto it=st.lower_bound(s);
             while(it!=st.end()){
                 s=*it;
