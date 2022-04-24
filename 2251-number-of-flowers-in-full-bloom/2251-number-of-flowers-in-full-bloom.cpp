@@ -10,19 +10,10 @@ public:
         }
         sort(s.begin(), s.end());
         sort(e.begin(), e.end());
-        // for(auto x:s){
-        //     cout<<x<<" ";
-        // }
-        // cout<<endl;
-        // for(auto x:e){
-        //     cout<<x<<" ";
-        // }
-        // cout<<endl;
         
         for(auto x:persons){
             auto it1=lower_bound(e.begin(), e.end(), x)-e.begin();
             auto it2=upper_bound(s.begin(), s.end(), x)-s.begin();
-            // cout<<it1<<" "<<it2<<endl;
             ans.push_back(it2-it1);
         }
         return ans;
