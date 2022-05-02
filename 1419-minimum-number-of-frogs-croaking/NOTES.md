@@ -1,0 +1,2 @@
+sath sath check karte time ye dekhna ki agr abhi is char ki freq increase hui hai to isse pehle s1 me jo char aate hai unki freq iske km nhi honi chaiye
+agr sabki freq me se 1 minus karte time agr khi negative hua to -1 mtlb arrangement sahi nhi hai see first wrong ans
