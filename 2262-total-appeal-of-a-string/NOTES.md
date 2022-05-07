@@ -1,0 +1,1 @@
+basically har char ke 2 occ ke beech me jitne bhi substr banegi total me se harko hatado to wo char ans me contribute karega and aise sab char ke lie kar lo
