@@ -1,1 +1,1 @@
-​
+Basically all the numbers that are perfect sq have odd number of factors means this much time they will toggle ie odd number of times means they will be the one that will be on after n rounds
