@@ -1,23 +1,11 @@
 class Solution {
 public:
-    int firstMissingPositive(vector<int>& a) {
-        int n=a.size();
-        sort(a.begin(), a.end());
-        int id=lower_bound(a.begin(), a.end(), 0)-a.begin();
-        if(id==n){
-            return 1;
-        }
-        if(a[id]==0){
-            id++;
-        }
-        int e=1;
-        for(int i=id;i<n;i++){
-            if(i>0 and a[i]==a[i-1])continue;
-            if(a[i]!=e){
-                return e;
-            }
-            e++;
-        }
-        return e;
+    int firstMissingPositive(vector<int>& nums) {
+        int n = nums.size();
+        for (int i = 0; i < n; i++) if (nums[i] <= 0) nums[i] = n + 1;
+        for (int i = 0; i < n; i++) if (abs(nums[i]) <= n && nums[abs(nums[i]) - 1] > 0) nums[abs(nums[i]) - 1] *= -1;
+        for (int i = 0; i < n; i++) if (nums[i] > 0) return i + 1;
+        return n + 1;
+
     }
 };
