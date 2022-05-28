@@ -1,32 +1,11 @@
 class Solution {
 public:
-    int missingNumber(vector<int>& arr) {
-        int a=0, o=0;
-        int n=arr.size();
-        for(int i=0;i<n;i++){
-            a^=arr[i];
-            o^=(i+1);
+    int missingNumber(vector<int>& v) {
+        int x=v.size();
+        for(int i=0;i<v.size();i++){
+            x^=i;
+            x^=v[i];
         }
-        a^=o;
-        int res=a&(-a);
-        int n1=0, n2=0;
-        for(int i=0;i<n;i++){
-            if(arr[i]&res){
-                n1^=arr[i];
-            }else{
-                n2^=arr[i];
-            }
-        }
-        for(int i=1;i<=n;i++){
-            if(i&res){
-                n1^=i;
-            }else{
-                n2^=i;
-            }
-        }
-        if(find(arr.begin(), arr.end(), n1)==arr.end()){
-            return n1;
-        }
-        return n2;
+        return x;
     }
 };
