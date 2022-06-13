@@ -9,10 +9,8 @@ public:
         }
         if(dp[i][j][ct]!=-1)return dp[i][j][ct];
         int ans=INT_MIN;
-        ans=max(ans,fun(i+1, j, a, b, ct));
-        for(int id=j;id<m;id++){
-            ans=max(ans, a[i]*b[id]+fun(i+1, id+1, a, b, 1));
-        }
+        ans=max({ans,fun(i+1, j, a, b, ct),fun(i, j+1, a, b, ct)});
+        ans=max(ans,fun(i+1, j+1, a, b, 1)+a[i]*b[j]);
         return dp[i][j][ct]=ans;
     }
     int maxDotProduct(vector<int>& a, vector<int>& b) {
