@@ -9,7 +9,7 @@ public:
         });
         priority_queue<int> p;
         int ct=0; int time=0;
-        for(auto x:courses){
+        for(auto &x:courses){
             if(time+x[0]<=x[1]){
                 time+=x[0];
                 ct++;
