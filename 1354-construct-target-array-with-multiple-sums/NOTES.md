@@ -1,1 +1,1 @@
-​
+max element ha to be greater than  sum of rest of elemnt
