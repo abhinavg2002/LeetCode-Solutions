@@ -13,7 +13,7 @@ public:
             if(s==1 or v==1){
                 return true;
             }
-            if(v<s or s==0 or v%s==0){
+            if(v<=s or s==0 or v%s==0){
                 return false;
             }
             v%=s;
