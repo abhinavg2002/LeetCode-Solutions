@@ -6,39 +6,28 @@ using namespace std;
 class Solution
 {
 public:
-    int fun(vector<int> &a, int b){
-        int n=a.size();
-        int i=0, j=0;
-        // atmost b
-        unordered_map<int,int> m;
-        int ct=0;
-        while(j<n){
-            m[a[j]]++;
-            while(m.size()>b){
-                if(--m[a[i]]==0){
-                    m.erase(a[i]);
-                }
-                i++;
-            }
-            ct+=(j-i+1);
-            j++;
-        }
-        return ct;
-    }
-    int subarraysWithKDistinct(vector<int>& a, int k) {
-        int n=a.size();
-        return fun(a, k)-fun(a, k-1);
-    }
     int countDistinctSubarray(int a[], int n)
     {
-        //code here.
-        vector<int> v;
         unordered_map<int,int> m;
         for(int i=0;i<n;i++){
-            v.push_back(a[i]);
             m[a[i]]++;
         }
-        return subarraysWithKDistinct(v, m.size());
+        int t=m.size();m.clear();
+        
+        int i=0, j=0, ct=0, ans=0;
+        while(j<n){
+            m[a[j]]++;
+            if(m[a[j]]==1)ct++;
+            while(ct==t){
+                ans+=(n-j);
+                m[a[i]]--;
+                if(m[a[i]]==0)ct--;
+                i++;
+            }
+            j++;
+        }
+        return ans;
+        //code here.
     }
 };
 
