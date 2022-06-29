@@ -11,12 +11,16 @@ class Solution{
 public:
     long long int arrangeTiles(int n){
         // code here
-        long long dp[n+1];
-        dp[0]=dp[1]=dp[2]=dp[3]=1;
-        for(int i=4;i<=n;i++){
-            dp[i]=dp[i-1]+dp[i-4];
+        vector<long long> dp;
+        for(int i=0;i<4;i++){
+            dp.push_back(1);
         }
-        return dp[n];
+        for(int i=4;i<=n;i++){
+            long long v=dp.back()+dp.front();
+            dp.push_back(v);
+            dp.erase(dp.begin());
+        }
+        return dp.back();
     }
 };
 
