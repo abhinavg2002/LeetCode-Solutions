@@ -12,13 +12,13 @@ public:
     long long int arrangeTiles(int n){
         // code here
         deque<long long> dp;
-        for(int i=0;i<4;i++){
-            dp.push_back(1);
-        }
-        for(int i=4;i<=n;i++){
-            long long v=dp.back()+dp.front();
-            dp.push_back(v);
-            dp.pop_front();
+        for(int i=0;i<=n;i++){
+            if(i<4){
+                dp.push_back(1);
+            }else{
+                dp.push_back(dp.back()+dp.front());
+                dp.pop_front();
+            }
         }
         return dp.back();
     }
