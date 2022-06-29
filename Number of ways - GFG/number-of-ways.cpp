@@ -11,14 +11,14 @@ class Solution{
 public:
     long long int arrangeTiles(int n){
         // code here
-        vector<long long> dp;
+        deque<long long> dp;
         for(int i=0;i<4;i++){
             dp.push_back(1);
         }
         for(int i=4;i<=n;i++){
             long long v=dp.back()+dp.front();
             dp.push_back(v);
-            dp.erase(dp.begin());
+            dp.pop_front();
         }
         return dp.back();
     }
