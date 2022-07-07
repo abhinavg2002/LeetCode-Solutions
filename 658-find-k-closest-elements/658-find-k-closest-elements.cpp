@@ -41,6 +41,5 @@ public:
         
         sort(v.begin(), v.end());
         return v;
-        
     }
 };
