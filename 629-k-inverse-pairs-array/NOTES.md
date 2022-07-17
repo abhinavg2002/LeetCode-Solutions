@@ -1,0 +1,3 @@
+logic mujhe samjh nhi aya but first element ke lie ye pata hai ki agr first pe hm koi ith element rakhenge to wo i-1 inversions pair deifinitely dega uske aage fs rha hai mamla
+like 2,3.... and 4,3,.....
+isme first 2 ke lie to hm bol denge ek inversion pair dega but 3 ki baari jab ayegi usme ye dekhna padega ki usse km elements kitne a chuke usse pehle ye mene pbds se kara dp lagai but then tle a gya usme
