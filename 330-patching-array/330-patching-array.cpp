@@ -1,18 +1,22 @@
 class Solution {
 public:
     #define ll long long
-    int minPatches(vector<int>& a, int n) {
+    int minPatches(vector<int>& a, int s) {
         sort(a.begin(), a.end());
-        int i=0;
-        ll s=1, ct=0;
-        while(s<=n){
-            if(i<a.size() and a[i]<=s){
-                s+=a[i];
-                i++;
-            }else{
-                s+=s;
+        ll res = 1;
+        int ct=0;
+        for (ll x: a) {
+            while(x>res){
                 ct++;
+                res+=res;
+                if(res>s)break;                
             }
+            res+=x;
+            if(res>s)break;
+        }
+        while(res<=s){
+            res<<=1ll;
+            ct++;
         }
         return ct;
     }
