@@ -1,1 +1,1 @@
-​
+https://leetcode.com/problems/shortest-impossible-sequence-of-rolls/discuss/2322321/Count-Subarrays-with-All-Dice
