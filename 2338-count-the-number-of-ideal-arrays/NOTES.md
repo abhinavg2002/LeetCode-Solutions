@@ -1,0 +1,1 @@
+https://leetcode.com/problems/count-the-number-of-ideal-arrays/discuss/2263352/C%2B%2B-or-O(20*n*sqrt(n))
