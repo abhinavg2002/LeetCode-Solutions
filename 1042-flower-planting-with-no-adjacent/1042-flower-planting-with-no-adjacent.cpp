@@ -2,8 +2,7 @@ class Solution {
 public:
     vector<vector<int>> l;
     vector<int> col, vis;
-    void dfs(int src){
-        vis[src]=1;
+    int get_color(int src){
         set<int> s;
         s.insert(1);
         s.insert(2);
@@ -14,7 +13,11 @@ public:
                 s.erase(col[x]);
             }
         }
-        col[src]=*s.begin();
+        return *s.begin();
+    }
+    void dfs(int src){
+        vis[src]=1;
+        col[src]=get_color(src);
         for(auto x:l[src]){
             if(vis[x])continue;
             dfs(x);
