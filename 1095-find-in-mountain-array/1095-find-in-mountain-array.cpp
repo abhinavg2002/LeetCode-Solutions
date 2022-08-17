@@ -56,7 +56,6 @@ public:
     }
     int findInMountainArray(int target, MountainArray &a) {
         int id=findPeakId(a);
-        cout<<id<<endl;
         int n=a.length();
         int l=bs(target, a, 0, id);
         int r=bsR(target, a, id+1, n-1);
