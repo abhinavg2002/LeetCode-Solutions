@@ -15,7 +15,7 @@ public:
     }
     int minCost(int n, vector<int>& a) {
         c=a;
-        c.insert(c.begin(), 0);
+        c.push_back(0);
         c.push_back(n);
         sort(c.begin(), c.end());
         m=c.size();
