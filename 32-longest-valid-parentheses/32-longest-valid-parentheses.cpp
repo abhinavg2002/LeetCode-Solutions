@@ -15,13 +15,14 @@ public:
         if(a.size()==0){
             longest=n;
         }else{
+            a.insert(a.begin(), -1);
             int v=n, b=0;
             while(a.size()){
                 b=a.back();a.pop_back();
                 longest=max(longest, v-b-1);
                 v=b;
             }
-            longest=max(longest, v);
+            // longest=max(longest, v);
         }
         return longest;
     }
