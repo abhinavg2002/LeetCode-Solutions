@@ -1,19 +1,35 @@
 class Solution {
 public:
-    #define ll long long
-    int maximumRobots(vector<int>& ct, vector<int>& rc, long long b) {
-        ll i=0, s=0;
-        int n=ct.size();
-        multiset<int> m;
-        for(ll j=0;j<n;j++){
-            s+=rc[j];
-            m.insert(ct[j]);
-            if((*m.rbegin())+s*(j-i+1)>b){
-                s-=rc[i];
-                m.erase(m.find(ct[i]));
-                i++;
+    int maximumRobots(vector<int>& chargeTimes, vector<int>& runningCosts, long long budget) {
+        int n = chargeTimes.size();
+        
+        int res = 0;
+        int i=0;
+        int j=0;
+        
+        deque<int> dq;
+        long long sum = 0;
+        long long cost = 0;
+        
+        while(j<n){
+            sum += runningCosts[j];
+            while(!dq.empty() && dq.back() < chargeTimes[j]) dq.pop_back();
+            
+            dq.push_back(chargeTimes[j]);
+            cost = sum*(j-i+1) + dq.front();
+            
+            if(cost <= budget) res = max(res, j-i+1);
+            else{
+                while(cost > budget){
+                    sum -= runningCosts[i];
+                    if(dq.front() == chargeTimes[i]) dq.pop_front();
+                    i++;
+                
+                    cost = sum*(j-i+1) + dq.front();
+                }
             }
+            j++;
         }
-        return n-i;
+        return res;
     }
 };
