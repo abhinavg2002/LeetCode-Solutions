@@ -2,14 +2,15 @@ class Solution {
 public:
     const int N=1e6+5;
     int minGroups(vector<vector<int>>& a) {
-        vector<int> p(N,0);
-        for(auto x:a){
-            p[x[0]]++;
-            p[x[1]+1]--;
+        multiset<int> s;
+        sort(a.begin(), a.end());
+        for(int i=0;i<a.size();i++){
+            auto it=s.lower_bound(a[i][0]);
+            if(it!=s.begin()){
+                s.erase(prev(it));
+            }
+            s.insert(a[i][1]);
         }
-        for(int i=1;i<N;i++){
-            p[i]+=p[i-1];
-        }
-        return *max_element(p.begin(), p.end());
+        return s.size();
     }
 };
