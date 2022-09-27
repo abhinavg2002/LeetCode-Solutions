@@ -1,0 +1,1 @@
+https://leetcode.com/problems/push-dominoes/discuss/2628923/C%2B%2B-or-Two-Pointer-or-Diagram-or-Related-Problems
