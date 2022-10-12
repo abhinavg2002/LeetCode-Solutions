@@ -1,6 +1,7 @@
 class Solution {
 public:
-    map<string,int> dp;
+    // map<string,int> dp;
+    int dp[4005];
     vector<int> solve(string s) {
         int n = (int)s.length();
         vector<int> pi(n);
@@ -17,7 +18,8 @@ public:
     int fun(string &s){
         int n=s.size();
         if(n==0)return 0;
-        if(dp.count(s))return dp[s];
+        // if(dp.count(s))return dp[s];
+        if(dp[n]!=-1)return dp[n];
         auto a=solve(s);
         int ans=1;
         for(int i=0;i<n;i++){
@@ -26,9 +28,11 @@ public:
                 ans=max(ans, 1+fun(t));
             }
         }
-        return dp[s]=ans;
+        // return dp[s]=ans;
+        return dp[n]=ans;
     }
     int deleteString(string s) {
+        memset(dp,-1,sizeof(dp));
         return fun(s);
     }
 };
