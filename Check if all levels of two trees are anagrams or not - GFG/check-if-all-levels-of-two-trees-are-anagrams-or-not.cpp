@@ -81,22 +81,13 @@ Node* buildTree(string str) {
 
 class Solution{
     public:
-    void fun(Node* root, map<int,multiset<int>> &m, int h=0){
-        if(!root)return;
-        m[h].insert(root->data);
-        fun(root->left, m, h+1);
-        fun(root->right, m, h+1);
-    }
-    bool areAnagrams(Node *root1, Node *root2)
+    bool areAnagrams(Node *a, Node *b)
     {
-        map<int,multiset<int>> a, b;
-        fun(root1, a);
-        fun(root2, b);
-        if(a.size()!=b.size())return false;
-        for(auto x:a){
-            if(x.second!=b[x.first])return false;
-        }
-        return true;
+        if(!a and !b)return true;
+        if(!a or !b)return false;
+        if(a->data!=b->data)return false;
+        
+        return areAnagrams(a->left, b->right) and areAnagrams(a->right, b->left);
     }
 };
 
