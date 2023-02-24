@@ -65,7 +65,7 @@ class Solution {
             int u=x[0]-1, v=x[1]-1, w=x[3];
             ans=min({ans, da[u]+db[v]+w, da[v]+db[u]+w});
         }
-        if(ans>=1e9+10)return -1;
+        if(ans==1e9+10)return -1;
         return ans;
     }
 };
